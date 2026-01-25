@@ -1,0 +1,106 @@
+{
+  "name": "angular-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "pull-instructor-code": "bash pull-instructor-code.sh",
+    "start:prod": "ng serve --configuration production",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:storybook": "test-storybook  --watch --url http://localhost:6006",
+    "lint": "ng lint",
+    "format": "npx prettier --write .",
+    "sheriff:check": "sheriff verify",
+    "sheriff:list": "sheriff list",
+    "sheriff:detective": "detective",
+    "generate-types": "openapi-ts",
+    "e2e": "npx playwright test",
+    "e2e:ui": "npx playwright test --ui",
+    "scaffold": "./scaffold.sh",
+    "storybook": "ng run angular-starter:storybook",
+    "build-storybook": "ng run angular-starter:build-storybook"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "packageManager": "npm@11.6.4",
+  "dependencies": {
+    "@angular/common": "^21.1.0",
+    "@angular/compiler": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "@angular/forms": "^21.1.0",
+    "@angular/platform-browser": "^21.1.0",
+    "@angular/router": "^21.1.0",
+    "@msw/playwright": "^0.4.5",
+    "@ng-icons/core": "^33.0.0",
+    "@ng-icons/lucide": "^33.0.0",
+    "@ngrx/operators": "^21.0.1",
+    "@ngrx/signals": "^21.0.1",
+    "clipboard": "^2.0.11",
+    "marked": "^17.0.1",
+    "ngx-markdown": "^21.0.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "^0.2101.0",
+    "@angular-devkit/build-angular": "^21.1.0",
+    "@angular-devkit/core": "^21.1.0",
+    "@angular/build": "^21.1.1",
+    "@angular/cli": "^21.1.1",
+    "@angular/compiler-cli": "^21.1.0",
+    "@angular/platform-browser-dynamic": "^21.1.0",
+    "@compodoc/compodoc": "^1.2.1",
+    "@hey-api/openapi-ts": "^0.90.8",
+    "@playwright/test": "1.57.0",
+    "@softarc/detective": "^2.0.2",
+    "@softarc/eslint-plugin-sheriff": "^0.19.6",
+    "@softarc/sheriff-core": "^0.19.6",
+    "@storybook/addon-a11y": "^10.2.0",
+    "@storybook/addon-docs": "^10.2.0",
+    "@storybook/angular": "^10.2.0",
+    "@storybook/builder-vite": "^10.2.0",
+    "@storybook/test-runner": "^0.24.2",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/postcss": "^4.1.12",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^25.0.10",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/ui": "^4.0.18",
+    "angular-eslint": "21.1.0",
+    "daisyui": "^5.5.14",
+    "eslint": "^9.39.1",
+    "eslint-plugin-storybook": "^10.2.0",
+    "jsdom": "^27.4.0",
+    "msw": "^2.12.7",
+    "playwright-ng-schematics": "^21.0.3",
+    "postcss": "^8.5.3",
+    "prettier": "^3.8.1",
+    "prismjs": "^1.30.0",
+    "simple-scaffold": "^2.3.3",
+    "storybook": "^10.2.0",
+    "tailwindcss": "^4.1.12",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "8.47.0",
+    "vitest": "^4.0.18"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}
