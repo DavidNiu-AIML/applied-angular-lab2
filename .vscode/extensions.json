@@ -15,6 +15,7 @@
     "bradlc.vscode-tailwindcss",
     "mattpocock.ts-error-translator",
     "orta.vscode-twoslash-queries",
-    "vitest.explorer"
+    "vitest.explorer",
+    "ms-playwright.playwright"
   ]
 }

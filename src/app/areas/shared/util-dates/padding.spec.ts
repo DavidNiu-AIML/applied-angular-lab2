@@ -1,8 +1,7 @@
 // not going to do this but test those things directly with vitest.
 // I'll add some in tonight for reference.
 
-import { describe, it } from 'node:test';
-import { expect } from 'storybook/test';
+import { describe, it, expect } from 'vitest';
 import { padSeconds, padMinutes, padHours } from './padding';
 
 describe('padSeconds', () => {
