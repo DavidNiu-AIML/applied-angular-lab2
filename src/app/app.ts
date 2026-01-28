@@ -4,7 +4,6 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 import { SectionLink } from '@ht/shared/ui-common/layouts/section';
 import { authStore } from '@ht/shared/util-auth/store';
 import { IconName, NgIcon } from '@ng-icons/core';
-import { Key } from 'node:readline';
 
 @Component({
   selector: 'app-root',

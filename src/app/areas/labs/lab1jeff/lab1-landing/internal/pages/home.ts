@@ -1,18 +1,17 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { PageLayout } from '@ht/shared/ui-common/layouts/page';
-import { Clock, Task } from '../widgets/clock';
+import { Task } from '../widgets/clock';
+import { tasksStore } from '../stores/tasks';
 
+// Creating a provider WHEREEVER means you are saying "create a new instance of this thing when injected here"
 @Component({
   selector: 'ht-home-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PageLayout, Clock, DatePipe, DecimalPipe],
+  imports: [PageLayout, DatePipe, DecimalPipe],
+
   template: `
     <app-ui-page title="First Lab">
-      <div class="flex flex-row ">
-        <app-labs-lab1-clock (taskAccomplished)="handleTask($event)" />
-      </div>
-
       <table class="table mb-8">
         <!-- head -->
         <thead>
@@ -62,6 +61,7 @@ import { Clock, Task } from '../widgets/clock';
   styles: ``,
 })
 export class HomePage {
+  store = inject(tasksStore);
   private tasks = signal<Task[]>([
     {
       startTime: new Date(),
