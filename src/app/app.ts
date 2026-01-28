@@ -109,5 +109,11 @@ export class App {
       title: 'Canned Demos',
       icon: 'lucideBook',
     },
+
+    {
+      path: '/jefflabs',
+      title: 'Lab 1 (Jeff)',
+      icon: 'lucideFlaskConical',
+    },
   ]);
 }
