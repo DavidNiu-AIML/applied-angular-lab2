@@ -2,12 +2,19 @@ import { computed, effect } from '@angular/core';
 import {
   patchState,
   signalStore,
+  watchState,
   withComputed,
   withHooks,
   withMethods,
   withState,
 } from '@ngrx/signals';
-import { addEntity, removeEntity, updateEntity, withEntities } from '@ngrx/signals/entities';
+import {
+  addEntity,
+  removeEntity,
+  setEntities,
+  updateEntity,
+  withEntities,
+} from '@ngrx/signals/entities';
 import { Task } from './internal/types';
 
 type TaskEntity = Task & { minutes: number; id: string; description: string };
@@ -96,6 +103,15 @@ export const tasksStore = signalStore(
   }),
   withHooks({
     onInit(store) {
+      const savedJson = localStorage.getItem('tasks');
+      if (savedJson) {
+        const savedTasks = JSON.parse(savedJson) as TaskEntity[];
+        patchState(store, setEntities(savedTasks));
+      }
+      watchState(store, () => {
+        localStorage.setItem('tasks', JSON.stringify(store.entities()));
+      });
+
       setInterval(() => {
         patchState(store, { _tick: new Date() });
       }, 1000);
